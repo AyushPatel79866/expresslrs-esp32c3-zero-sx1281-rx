@@ -1,64 +1,68 @@
-# Full Source Backup
+# Full Source Setup
 
-This repo also includes a backup zip of the full ExpressLRS source tree I used for this custom receiver target.
+This repo includes `ExpressLRS-full-source-custom.zip`, which is a backup of the full ExpressLRS source tree used during my custom ESP32-C3 Zero receiver build.
 
-## Included
+## What Is In The Zip
 
-- Upstream ExpressLRS source tree
-- My custom receiver target changes
-- My hardware JSON files
+- ExpressLRS source tree
+- My custom RX target change
+- My custom hardware JSON files
 
-## Backup File
+The archive is here so I can return later and build again without repeating the whole setup process.
 
-- `ExpressLRS-full-source-custom.zip`
+## Restore Steps
 
-## Why This Is Here
-
-I added this so I can come back later and build new firmware without repeating all of the setup work from scratch.
-
-## Notes
-
-- This is based on my local working source tree.
-- The zip is meant as a practical backup, not as a replacement for the main ExpressLRS upstream project.
-- The backup zip does not need PlatformIO build output to be useful, so temporary build folders may be excluded.
-
-## Fast Restore
-
-1. Download this repository or just the zip file.
-2. Extract `ExpressLRS-full-source-custom.zip`.
+1. Download this repository or just `ExpressLRS-full-source-custom.zip`.
+2. Extract the zip somewhere convenient.
 3. Open the extracted `src` folder in VS Code with PlatformIO.
-4. Build with:
+4. Confirm the custom target files are present.
+5. Build the RX firmware.
+6. Flash LittleFS.
+7. Flash firmware.
+8. Verify clean boot over serial.
+
+## Build Commands
+
+Run these from the extracted ExpressLRS `src` folder:
 
 ```powershell
 pio run -e DIY_ESP32C3_Zero_SX1281_2400_RX_via_UART
-```
-
-5. Flash filesystem:
-
-```powershell
 pio run -e DIY_ESP32C3_Zero_SX1281_2400_RX_via_UART --target uploadfs
-```
-
-6. Flash firmware:
-
-```powershell
 pio run -e DIY_ESP32C3_Zero_SX1281_2400_RX_via_UART --target upload
 ```
 
-## If You Want TX Firmware Later
+## Boot Check
 
-This backup is centered around a custom RX target.
+After flashing:
 
-For future TX firmware work:
+- open serial at `420000` baud
+- make sure there are no missing LittleFS file errors
+- check for the ExpressLRS RX WiFi hotspot
 
-1. Check whether your transmitter hardware already exists in official ExpressLRS targets.
+## Important Reminder
+
+The original boot issue was caused by the filesystem format mismatch.
+
+This target needs:
+
+`board_build.filesystem = littlefs`
+
+If you flash firmware but skip `uploadfs`, or if the filesystem is built as SPIFFS instead of LittleFS, the receiver may fail to boot correctly.
+
+## TX Firmware Later
+
+This backup is for a custom RX target, not a TX target.
+
+If you want TX firmware later:
+
+1. Check official ExpressLRS TX targets first.
 2. Review:
    - `targets/esp32-tx.ini`
    - `targets/esp32c3-tx.ini`
-3. If your hardware is supported, build using the official TX target.
-4. If your hardware is not supported, create a separate custom TX target instead of modifying this RX target.
+3. Use an official TX target if your hardware already exists.
+4. If not, make a separate custom TX target instead of modifying this RX target.
 
-Quick reminder:
+## Quick Reminder
 
 - RX target used here: `DIY_ESP32C3_Zero_SX1281_2400_RX_via_UART`
 - This repo does not currently include a custom TX target
