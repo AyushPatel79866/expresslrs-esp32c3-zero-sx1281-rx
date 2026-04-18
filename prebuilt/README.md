@@ -4,10 +4,23 @@ These files are for people who want to flash the custom receiver without rebuild
 
 Included files:
 
+- `full-flash.bin`
 - `firmware.bin`
 - `littlefs.bin`
 
-## Flash Order
+## Easiest Option
+
+Flash `full-flash.bin` at offset `0x0`.
+
+That single file already includes:
+
+- bootloader
+- partitions
+- boot app
+- firmware
+- LittleFS image
+
+## Manual Two-File Option
 
 1. Flash `littlefs.bin`
 2. Flash `firmware.bin`
@@ -20,6 +33,8 @@ Included files:
 - Filesystem must be LittleFS
 
 ## Important
+
+If you use `full-flash.bin`, flash it to address `0x0`.
 
 If someone only flashes `firmware.bin` and not `littlefs.bin`, the board may boot with missing file errors like:
 
