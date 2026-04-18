@@ -18,12 +18,16 @@ This was my first time building and sharing a custom ExpressLRS target, and also
 - `src/lib/OPTIONS/options.cpp.snippet`
 - `FLASHING.md`
 - `FLASHING.pdf`
+- `prebuilt/firmware.bin`
+- `prebuilt/littlefs.bin`
 - `ExpressLRS-full-source-custom.zip`
 - `FULL_SOURCE_SETUP.md`
 
 Use the `src/` files if you want to patch an existing ExpressLRS source tree.
 
 Use `ExpressLRS-full-source-custom.zip` if you want the full source backup I used during this build.
+
+Use the `prebuilt/` folder if you just want downloadable files to flash directly without rebuilding.
 
 ## Build Base
 
