@@ -16,6 +16,8 @@ This was my first time building and sharing a custom ExpressLRS target, and also
 - `src/data/hardware.json`
 - `src/user_defines.txt`
 - `src/lib/OPTIONS/options.cpp.snippet`
+- `FLASHING.md`
+- `FLASHING.pdf`
 - `ExpressLRS-full-source-custom.zip`
 - `FULL_SOURCE_SETUP.md`
 

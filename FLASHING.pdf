@@ -1,0 +1,230 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+2 0 obj
+<< /Length 1317 >>
+stream
+BT
+/F1 12 Tf
+72 760 Td
+14 TL
+(REFLASHING GUIDE) Tj
+T*
+() Tj
+T*
+(DIY ELRS ESP32-C3 Zero Receiver) Tj
+T*
+() Tj
+T*
+(Use this guide when you want to reflash the custom receiver firmware later.) Tj
+T*
+() Tj
+T*
+(Every Time You Reflash) Tj
+T*
+() Tj
+T*
+(Step 1) Tj
+T*
+() Tj
+T*
+(Open the project in VS Code:) Tj
+T*
+() Tj
+T*
+(File -> Open Folder -> E:\\expresslrsc3\\ExpressLRS\\src) Tj
+T*
+() Tj
+T*
+(Step 2) Tj
+T*
+() Tj
+T*
+(Open the terminal:) Tj
+T*
+() Tj
+T*
+(Ctrl + ~) Tj
+T*
+() Tj
+T*
+(Step 3) Tj
+T*
+() Tj
+T*
+(Plug in the ESP32-C3 Zero by USB.) Tj
+T*
+() Tj
+T*
+(Case A: Reflash Firmware Only) Tj
+T*
+() Tj
+T*
+(Use this if you only changed the binding phrase or other build flags and do not need to) Tj
+T*
+(refresh the filesystem.) Tj
+T*
+() Tj
+T*
+(powershell) Tj
+T*
+(pio run -e DIY_ESP32C3_Zero_SX1281_2400_RX_via_UART --target upload) Tj
+T*
+() Tj
+T*
+() Tj
+T*
+(Case B: Reflash Everything) Tj
+T*
+() Tj
+T*
+(Use this after a fresh clone, after major config changes, or if the board crashes on) Tj
+T*
+(boot.) Tj
+T*
+() Tj
+T*
+(First flash the filesystem:) Tj
+T*
+() Tj
+T*
+(powershell) Tj
+T*
+(pio run -e DIY_ESP32C3_Zero_SX1281_2400_RX_via_UART --target uploadfs) Tj
+T*
+() Tj
+T*
+() Tj
+T*
+(Wait for SUCCESS, then flash firmware:) Tj
+T*
+() Tj
+T*
+(powershell) Tj
+T*
+(pio run -e DIY_ESP32C3_Zero_SX1281_2400_RX_via_UART --target upload) Tj
+ET
+endstream
+endobj
+3 0 obj
+<< /Type /Page /Parent 6 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 1 0 R >> >> /Contents 2 0 R >>
+endobj
+4 0 obj
+<< /Length 1149 >>
+stream
+BT
+/F1 12 Tf
+72 760 Td
+14 TL
+() Tj
+T*
+() Tj
+T*
+(If Upload Gets Stuck At Connecting) Tj
+T*
+() Tj
+T*
+(1. Hold the BOOT button on the board.) Tj
+T*
+(2. Run the upload command.) Tj
+T*
+(3. Release the button when Connecting... appears.) Tj
+T*
+() Tj
+T*
+(Verify It Worked) Tj
+T*
+() Tj
+T*
+(1. Wait about 60 seconds after flashing.) Tj
+T*
+(2. On your phone, connect to the receiver WiFi.) Tj
+T*
+(3. SSID: ExpressLRS RX) Tj
+T*
+(4. Password: expresslrs) Tj
+T*
+(5. Open: http://10.0.0.1) Tj
+T*
+() Tj
+T*
+(Expected result:) Tj
+T*
+() Tj
+T*
+(- The page should load successfully.) Tj
+T*
+(- The firmware target should show DIY_ESP32C3_ZERO_SX1281_2400_RX.) Tj
+T*
+() Tj
+T*
+(Change Binding Phrase) Tj
+T*
+() Tj
+T*
+(Open src/user_defines.txt and edit:) Tj
+T*
+() Tj
+T*
+(text) Tj
+T*
+(-DMY_BINDING_PHRASE="your-phrase-here") Tj
+T*
+() Tj
+T*
+() Tj
+T*
+(Then do a full reflash:) Tj
+T*
+() Tj
+T*
+(- uploadfs) Tj
+T*
+(- upload) Tj
+T*
+() Tj
+T*
+(Recommended Habit) Tj
+T*
+() Tj
+T*
+(If you are not sure whether only firmware is enough, do the full reflash sequence:) Tj
+T*
+() Tj
+T*
+(1. uploadfs) Tj
+T*
+(2. upload) Tj
+T*
+() Tj
+T*
+(That is the safest option for this custom target.) Tj
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Page /Parent 6 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 1 0 R >> >> /Contents 4 0 R >>
+endobj
+6 0 obj
+<< /Type /Pages /Count 2 /Kids [3 0 R 5 0 R] >>
+endobj
+7 0 obj
+<< /Type /Catalog /Pages 6 0 R >>
+endobj
+xref
+0 8
+0000000000 65535 f 
+0000000015 00000 n 
+0000000085 00000 n 
+0000001454 00000 n 
+0000001580 00000 n 
+0000002781 00000 n 
+0000002907 00000 n 
+0000002970 00000 n 
+trailer
+<< /Size 8 /Root 7 0 R >>
+startxref
+3019
+%%EOF
