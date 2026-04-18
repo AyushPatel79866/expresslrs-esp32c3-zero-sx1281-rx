@@ -1,0 +1,7 @@
+[env:DIY_ESP32C3_Zero_SX1281_2400_RX_via_UART]
+extends = env_common_esp32c3rx, radio_SX128X
+build_flags =
+    ${env_common_esp32c3rx.build_flags}
+    ${radio_SX128X.build_flags}
+    -DUSE_HARDWARE_SERIAL
+board_build.filesystem = littlefs
