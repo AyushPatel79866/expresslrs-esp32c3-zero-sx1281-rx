@@ -69,6 +69,11 @@ This target must use:
 
 During the original setup, the receiver booted with missing `/littlefs/options.json` and `/littlefs/hardware.json` errors until the filesystem was built and flashed as LittleFS instead of SPIFFS.
 
+Important gotcha:
+
+- You must add `board_build.filesystem = littlefs` to the custom env block in `esp32-rx.ini`
+- If you skip this, the board may crash on boot with errors like `/littlefs/hardware.json does not exist`
+
 There is also a custom name fallback fix included in this repo so the receiver does not keep showing `Unified RX` when using this custom non-`Unified_` target.
 
 ## Quick Start

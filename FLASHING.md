@@ -34,6 +34,15 @@ pio run -e DIY_ESP32C3_Zero_SX1281_2400_RX_via_UART --target upload
 
 Use this after a fresh clone, after major config changes, or if the board crashes on boot.
 
+Before flashing, confirm your custom env includes:
+
+`board_build.filesystem = littlefs`
+
+If this line is missing, the receiver may crash on boot with errors such as:
+
+- `/littlefs/hardware.json does not exist`
+- `/littlefs/options.json does not exist`
+
 First flash the filesystem:
 
 ```powershell
