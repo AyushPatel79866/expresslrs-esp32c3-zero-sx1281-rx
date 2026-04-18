@@ -1,0 +1,5 @@
+### Receiver build options used for this custom target ###
+
+-DLOCK_ON_FIRST_CONNECTION
+-DDEVICE_NAME="C3Zero SX1281"
+-DAUTO_WIFI_ON_INTERVAL=60

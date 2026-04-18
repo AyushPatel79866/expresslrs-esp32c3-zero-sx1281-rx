@@ -14,6 +14,8 @@ This was my first time building and sharing a custom ExpressLRS target, and also
 - `src/targets/esp32-rx.ini.snippet`
 - `src/hardware/2400/DIY_ESP32C3_Zero_SX1281_RX/config.json`
 - `src/data/hardware.json`
+- `src/user_defines.txt`
+- `src/lib/OPTIONS/options.cpp.snippet`
 - `ExpressLRS-full-source-custom.zip`
 - `FULL_SOURCE_SETUP.md`
 
@@ -65,16 +67,20 @@ This target must use:
 
 During the original setup, the receiver booted with missing `/littlefs/options.json` and `/littlefs/hardware.json` errors until the filesystem was built and flashed as LittleFS instead of SPIFFS.
 
+There is also a custom name fallback fix included in this repo so the receiver does not keep showing `Unified RX` when using this custom non-`Unified_` target.
+
 ## Quick Start
 
 1. Start from an ExpressLRS `4.0.0` source tree.
 2. Add the env block from `src/targets/esp32-rx.ini.snippet` into `src/targets/esp32-rx.ini`.
 3. Copy `src/hardware/2400/DIY_ESP32C3_Zero_SX1281_RX/config.json` into the matching location in the ExpressLRS tree.
 4. Copy `src/data/hardware.json` into `src/data/` in the ExpressLRS tree.
-5. Build the firmware.
-6. Flash the filesystem image first.
-7. Flash the firmware image second.
-8. Check the serial monitor at `420000` baud.
+5. Copy `src/user_defines.txt` values into your local `user_defines.txt`.
+6. Apply the `src/lib/OPTIONS/options.cpp.snippet` fallback change if you want the custom device name to appear instead of `Unified RX`.
+7. Build the firmware.
+8. Flash the filesystem image first.
+9. Flash the firmware image second.
+10. Check the serial monitor at `420000` baud.
 
 ## Full Build Steps
 

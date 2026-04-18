@@ -1,0 +1,14 @@
+// Custom fallback for non-Unified targets:
+// if no appended product/device metadata is found in flash,
+// keep the configured device name instead of falling back to "Unified RX".
+
+    else
+    {
+        #if defined(TARGET_RX)
+        strlcpy(product_name, device_name, sizeof(product_name));
+        #else
+        strlcpy(product_name, device_name, sizeof(product_name));
+        #endif
+
+        return false;
+    }
