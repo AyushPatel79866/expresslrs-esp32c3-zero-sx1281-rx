@@ -44,3 +44,21 @@ pio run -e DIY_ESP32C3_Zero_SX1281_2400_RX_via_UART --target uploadfs
 ```powershell
 pio run -e DIY_ESP32C3_Zero_SX1281_2400_RX_via_UART --target upload
 ```
+
+## If You Want TX Firmware Later
+
+This backup is centered around a custom RX target.
+
+For future TX firmware work:
+
+1. Check whether your transmitter hardware already exists in official ExpressLRS targets.
+2. Review:
+   - `targets/esp32-tx.ini`
+   - `targets/esp32c3-tx.ini`
+3. If your hardware is supported, build using the official TX target.
+4. If your hardware is not supported, create a separate custom TX target instead of modifying this RX target.
+
+Quick reminder:
+
+- RX target used here: `DIY_ESP32C3_Zero_SX1281_2400_RX_via_UART`
+- This repo does not currently include a custom TX target

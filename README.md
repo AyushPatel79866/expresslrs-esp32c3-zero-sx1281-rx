@@ -61,3 +61,40 @@ pio run -e DIY_ESP32C3_Zero_SX1281_2400_RX_via_UART --target upload
 
 - `board_build.filesystem = littlefs` is required for this target.
 - The filesystem image must be flashed before or along with firmware so `hardware.json` is available at boot.
+
+## Come Back Later
+
+If you return to this repo later, start here:
+
+- Read this `README.md` first
+- Read `FULL_SOURCE_SETUP.md` for the backup and restore workflow
+- Use `ExpressLRS-full-source-custom.zip` if you want the full source tree I used
+
+Files to check first:
+
+- `src/targets/esp32-rx.ini.snippet`
+- `src/hardware/2400/DIY_ESP32C3_Zero_SX1281_RX/config.json`
+- `src/data/hardware.json`
+
+## RX vs TX
+
+This repository is for a custom **receiver** target, not a transmitter target.
+
+If you want to build this receiver again:
+
+- Use the RX env: `DIY_ESP32C3_Zero_SX1281_2400_RX_via_UART`
+- Flash filesystem first with `uploadfs`
+- Then flash firmware with `upload`
+
+If you want to build **TX firmware** later:
+
+- First check whether your transmitter hardware already has an official ExpressLRS target
+- If it does, use the official target and build normally
+- If it does not, you will need a separate custom TX target with its own target env and hardware config
+- Do not reuse this RX target as-is for TX firmware
+
+For TX work, inspect the upstream ExpressLRS target files first:
+
+- `targets/esp32-tx.ini`
+- `targets/esp32c3-tx.ini`
+- matching TX hardware definitions in the ExpressLRS source tree
